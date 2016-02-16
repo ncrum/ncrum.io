@@ -15,14 +15,13 @@ class Post extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!nextProps.post) {
-      const { dispatch, params } = nextProps
+    const { dispatch, params, isFetching } = nextProps
+    if (nextProps.post.title !== params.title.removeDashes() && !isFetching) {
       dispatch(fetchPostIfNeeded(params.title.removeDashes()))
     }
   }
 
   render() {
-
     return (
       <div>
         <PostContent {...this.props.post}/>
