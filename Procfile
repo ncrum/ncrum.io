@@ -1,1 +1,1 @@
-web: node server.babel.js
+web: sudo node server.babel.js
