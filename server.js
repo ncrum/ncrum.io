@@ -29,4 +29,4 @@ app.use(serve(__dirname + '/node_modules'))
 apiRoutes(app)
 indexRoutes(app, path.join(__dirname, 'client/views/index.html'))
 
-app.listen(3000)
+app.listen(process.env.PORT || 80)
