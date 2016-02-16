@@ -104,14 +104,17 @@ section.blog-list-container {
     display: inline-block;
     padding: 0;
     margin: 0;
-    width: 25%;
+    width: 30%;
+    overflow-x: hidden;
 
     li.item {
+      margin-bottom: 20px;
 
       a {
-        margin: 10px 5px;
+        margin: 0 5px;
         padding: 5px 10px;
         font-size: 18px;
+        white-space: nowrap;
 
         &.active, &:hover, &:active {
           border: 0 solid @primary;
@@ -125,11 +128,10 @@ section.blog-list-container {
     display: inline-block;
     padding: 0;
     margin: 0;
-    width: 75%;
+    width: 70%;
 
     .post-content {
       padding: 0 20px;
     }
-
   }
 }
