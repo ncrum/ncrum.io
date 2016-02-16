@@ -1,0 +1,135 @@
+
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('Ubuntu-R.ttf') format('truetype');
+}
+
+@primary: #2faf2f;
+@secondary: #2d2e2d;
+
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  body {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+
+li {
+  list-style: none !important;
+}
+
+a {
+  text-decoration: none;
+  color: @primary;
+}
+
+a.active, a:active, a:hover {
+  color: @secondary;
+}
+
+section.top-nav-container {
+  display: block;
+  height: 120px;
+  position: relative;
+
+  @portrait-size: 64px;
+
+  div.portrait {
+    border: 0 solid #d5d1d1;
+    border-bottom-width: 1px;
+
+    display: inline-block;
+    position: absolute;
+
+    height: @portrait-size;
+    width: 100%;
+
+    img {
+      background-color: #fff;
+      border: 1px solid #d5d1d1;
+      border-radius: 50%;
+
+      position: relative;
+      left: 50px;
+      top: 50%;
+
+      height: @portrait-size;
+      width: @portrait-size;
+    }
+  }
+
+  nav.top-nav {
+    display: inline-block;
+    position: absolute;
+
+    right: 50px;
+    top: 15px;
+
+    ul.list {
+
+      li.item {
+        display: inline-block;
+
+        a {
+          margin: 0 5px;
+          padding: 5px 10px;
+          font-size: 21px;
+
+          &.active, &:hover, &:active {
+            border: 0 solid @primary;
+            border-bottom-width: 4px;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+section.blog-list-container {
+
+  ul.list {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    width: 25%;
+
+    li.item {
+
+      a {
+        margin: 0 5px;
+        padding: 5px 10px;
+        font-size: 18px;
+
+        &.active, &:hover, &:active {
+          border: 0 solid @primary;
+          border-bottom-width: 2px;
+        }
+      }
+    }
+  }
+
+  section.post-container {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    width: 75%;
+
+    .post-content {
+      padding: 0 20px;
+    }
+
+  }
+}
