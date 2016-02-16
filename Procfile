@@ -1,1 +1,1 @@
-web: forever server.babel.js
+web: node server.babel.js
