@@ -1,1 +1,1 @@
-web: sudo node server.babel.js
+web: forever server.babel.js
