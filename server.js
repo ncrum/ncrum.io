@@ -10,7 +10,7 @@ import indexRoutes from './app/routes/index'
 import apiRoutes from './app/routes/api'
 
 import mongoose from 'mongoose'
-mongoose.connect('127.0.0.1:27017')
+mongoose.connect(process.env.MONGO_URL || '127.0.0.1:27017')
 
 const app = koa()
 
