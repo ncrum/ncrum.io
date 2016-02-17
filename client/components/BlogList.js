@@ -16,7 +16,7 @@ class BlogList extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.posts) {
-      const { dispatch } = nextProps
+      const { dispatch } = this.props
       dispatch(fetchPostsIfNeeded())
     }
   }
@@ -48,6 +48,11 @@ class BlogList extends React.Component {
 BlogList.propTypes = {
   posts: PropTypes.array.isRequired,
   dispatch: PropTypes.func.isRequired
+}
+
+BlogList.fetchData = function(args) {
+  const {store} = args;
+  return store.dispatch(fetchPostsIfNeeded())
 }
 
 // now we connect the component to the Redux store:

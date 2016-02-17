@@ -1,5 +1,10 @@
 import fetch from 'isomorphic-fetch';
 
+function doFetch(url, options) {
+  const finalUrl = (typeof process === 'object' && process + '' === '[object process]') ? 'http://127.0.0.1:' + (process.env.PORT || 8000) + url : url
+  return fetch(finalUrl, options);
+}
+
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 
 export function requestPosts() {
@@ -21,7 +26,7 @@ export function receivePosts(json) {
 function fetchPosts() {
   return dispatch => {
     dispatch(requestPosts())
-    return fetch(`/api/blog?fl=title`)
+    return doFetch(`/api/blog?fl=title`)
       .then(response => response.json())
       .then(json => {
         dispatch(receivePosts(json))
@@ -81,7 +86,7 @@ export function receivePost(title, json) {
 function fetchPost(title) {
   return dispatch => {
     dispatch(requestPost(title))
-    return fetch(`/api/blog?conditions={"title":"${title}"}`)
+    return doFetch(`/api/blog?conditions={"title":"${title}"}`)
       .then(response => response.json())
       .then(json => {
         if (Array.isArray(json)) {

@@ -17,11 +17,11 @@ class App extends React.Component {
               <li className="item">
                 <Link to="/about" activeClassName="active">About</Link>
               </li>
-              <li className="item" >
+              <li className="item">
                 <Link to="/blog" activeClassName="active">Blog</Link>
               </li>
-              <li className="item" activeClassName="active">
-                <Link to="/projects">Projects</Link>
+              <li className="item">
+                <Link to="/projects" activeClassName="active">Projects</Link>
               </li>
             </ul>
           </nav>

@@ -30,6 +30,12 @@ class Post extends React.Component {
   }
 }
 
+
+Post.fetchData = function(args) {
+  const {params, store} = args;
+  return store.dispatch(fetchPostIfNeeded(params.title.removeDashes()))
+}
+
 // now we connect the component to the Redux store:
 var mapStateToProps = function(state){
   const {blog} = state;
