@@ -112,15 +112,18 @@ export default function(app, indexPath) {
       return Promise.all(promises);
     }
 
-    yield fetchReduxStatePromise();
 
-    let html = renderToString(
-      <Provider store={store}>
-        <RouterContext {...props}/>
-      </Provider>
-    );
+    if (props) {
+      yield fetchReduxStatePromise();
 
-    this.body = yield renderHtml(html, store.getState())
+      let html = renderToString(
+        <Provider store={store}>
+          <RouterContext {...props}/>
+        </Provider>
+      );
+
+      this.body = yield renderHtml(html, store.getState())
+    }
 	})
 
   app.use(router.middleware());
