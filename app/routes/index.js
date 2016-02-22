@@ -1,7 +1,9 @@
 require('../../client/util/util');
 import fs from 'fs'
+import path from 'path'
 import Router from 'koa-router'
 import browserify from 'koa-browserify-middleware'
+import serve from 'koa-static'
 import React                     from 'react'
 import { renderToString }        from 'react-dom/server'
 import createMemoryHistory from 'history/lib/createMemoryHistory'
@@ -36,7 +38,7 @@ function renderHtml(html, initialState) {
       <html>
         <head>
           <title>ncrum.io</title>
-          <link rel="stylesheet" type="text/css" href="/styles/style.css">
+          <link rel="stylesheet" type="text/css" href="/style.css">
         </head>
         <body>
           <div id="mount">${html}</div>
@@ -49,22 +51,22 @@ function renderHtml(html, initialState) {
       </html>
     `)
   })
-
-
 }
 
 export default function(app, indexPath) {
   const router = new Router();
 
-  router.get('/dist/' + config.common.bundle, browserify(config.common.packages, {
-    cache: true,
-    precompile: true
-  }))
+  if (process.env.NODE_ENV !== 'production') {
+    router.get('/dist/' + config.common.bundle, browserify(config.common.packages, {
+      cache: true,
+      precompile: true
+    }))
 
-  router.get('/dist/app.js', browserify('./client/app.js', {
-    external : config.common.packages,
-    transform : [["babelify", { "presets": ["es2015", "react", "stage-2"] }]]
-  }))
+    router.get('/dist/app.js', browserify('./client/app.js', {
+      external : config.common.packages,
+      transform : [["babelify", { "presets": ["es2015", "react", "stage-2"] }]]
+    }))
+  }
 
   router.get('/*', function*() {
     let props;
@@ -114,7 +116,12 @@ export default function(app, indexPath) {
 
 
     if (props) {
-      yield fetchReduxStatePromise();
+      try {
+          yield fetchReduxStatePromise();
+      } catch (err) {
+        this.throw(err, 500)
+      }
+
 
       let html = renderToString(
         <Provider store={store}>

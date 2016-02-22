@@ -39,7 +39,8 @@
     "babel-preset-stage-2": "^6.5.0"
   },
   "scripts": {
-    "start": "sudo nodemon server.babel.js"
+    "start": "sudo nodemon server.babel.js",
+    "build-js": "rm -rf dist && mkdir dist && browserify -r react -r react-router -r react-redux -r react-router-redux -r redux -r redux-thunk -o dist/common.js && browserify -x dist/common.js -t [ babelify --presets [ react es2015 stage-2 ] ] client/app.js -o dist/app.js"
   },
   "author": "",
   "license": "ISC"

@@ -23,8 +23,11 @@ app.use(less(path.join(__dirname, 'client'), {
 }))
 
 
-app.use(serve(__dirname + '/client'))
+app.use(serve(__dirname + '/client/styles'))
 app.use(serve(__dirname + '/node_modules'))
+if (process.env.NODE_ENV === 'production') {
+  app.use(serve(path.join(__dirname, 'dist')))
+}
 
 apiRoutes(app)
 indexRoutes(app, path.join(__dirname, 'client/views/index.html'))
