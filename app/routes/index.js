@@ -45,8 +45,8 @@ function renderHtml(html, initialState) {
           <script>
             window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
           </script>
-          <script src="/dist/common.js"></script>
-          <script src="/dist/app.js"></script>
+          <script src="/common.js"></script>
+          <script src="/app.js"></script>
         </body>
       </html>
     `)
