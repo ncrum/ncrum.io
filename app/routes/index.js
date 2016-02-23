@@ -53,7 +53,7 @@ function renderHtml(html, initialState) {
   })
 }
 
-export default function(app, indexPath) {
+export default function(app) {
   const router = new Router();
 
   if (process.env.NODE_ENV !== 'production') {

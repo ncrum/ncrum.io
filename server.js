@@ -25,6 +25,6 @@ if (process.env.NODE_ENV === 'production') {
   app.use(serve(path.join(__dirname, 'dist')))
 }
 
-indexRoutes(app, path.join(__dirname, 'client/views/index.html'))
+indexRoutes(app)
 
 app.listen(process.env.PORT || 8000)

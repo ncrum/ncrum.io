@@ -1,5 +1,4 @@
 import fetch from 'isomorphic-fetch'
-import path from 'path'
 
 function doFetch(url, options) {
   const finalUrl = 'http://api.ncrum.io' + url;
