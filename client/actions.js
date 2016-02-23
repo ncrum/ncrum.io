@@ -1,7 +1,8 @@
-import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch'
+import path from 'path'
 
 function doFetch(url, options) {
-  const finalUrl = (typeof process === 'object' && process + '' === '[object process]') ? 'http://127.0.0.1:' + (process.env.PORT || 8000) + url : url
+  const finalUrl = 'http://api.ncrum.io' + url;
   return fetch(finalUrl, options);
 }
 
@@ -26,7 +27,7 @@ export function receivePosts(json) {
 function fetchPosts() {
   return dispatch => {
     dispatch(requestPosts())
-    return doFetch(`/api/blog?fl=title`)
+    return doFetch(`/blog?fl=title`)
       .then(response => response.json())
       .then(json => {
         dispatch(receivePosts(json))
@@ -86,7 +87,7 @@ export function receivePost(title, json) {
 function fetchPost(title) {
   return dispatch => {
     dispatch(requestPost(title))
-    return doFetch(`/api/blog?conditions={"title":"${title}"}`)
+    return doFetch(`/blog?conditions={"title":"${title}"}`)
       .then(response => response.json())
       .then(json => {
         if (Array.isArray(json)) {

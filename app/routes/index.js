@@ -57,12 +57,12 @@ export default function(app, indexPath) {
   const router = new Router();
 
   if (process.env.NODE_ENV !== 'production') {
-    router.get('/dist/' + config.common.bundle, browserify(config.common.packages, {
+    router.get('/' + config.common.bundle, browserify(config.common.packages, {
       cache: true,
       precompile: true
     }))
 
-    router.get('/dist/app.js', browserify('./client/app.js', {
+    router.get('/app.js', browserify('./client/app.js', {
       external : config.common.packages,
       transform : [["babelify", { "presets": ["es2015", "react", "stage-2"] }]]
     }))
