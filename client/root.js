@@ -8,10 +8,9 @@ import Post from './components/Post';
 export default function getRoutes() {
   return (
     <Route path="/"  component={App}>
-      <IndexRedirect to="blog"/>
+      <IndexRedirect to="about"/>
       <Route path="about" component={About}/>
       <Route path="blog" component={BlogList}>
-        <IndexRedirect to="Building-a-RESTful-API-with-Koa"/>
         <Route path=":title" component={Post}/>
       </Route>
     </Route>

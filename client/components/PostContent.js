@@ -8,7 +8,7 @@ class PostContent extends React.Component {
       <div className="post-content">
         <h3>{title}</h3>
         <hr/>
-        <Markdown source={body || ''}/>
+        <Markdown source={decodeURIComponent(body) || ''}/>
       </div>
     )
   }
