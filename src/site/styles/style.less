@@ -1,4 +1,5 @@
-
+@import (css) 'markdown.css';
+@import (css) 'darkula.css';
 
 @font-face {
   font-family: 'Ubuntu';
@@ -104,7 +105,9 @@ section.blog-list-container {
     display: inline-block;
     padding: 0;
     margin: 0;
+    margin-top: 20px;
     width: 30%;
+    vertical-align: top;
     overflow-x: hidden;
 
     li.item {
@@ -129,9 +132,18 @@ section.blog-list-container {
     padding: 0;
     margin: 0;
     width: 70%;
+    vertical-align: top;
 
     .post-content {
       padding: 0 20px;
+
+      .post-title {
+        height: 20px;
+      }
+
+      .post-body {
+        min-height: 400px;
+      }
     }
   }
 }
