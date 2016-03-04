@@ -6,7 +6,7 @@ class App extends React.Component {
     return (
       <div>
         {/*
-          Portrait ----- About Blog (default) Projects
+          Portrait ----- About Blog Github
         */}
         <section className="top-nav-container">
           <div className="portrait">
@@ -21,7 +21,7 @@ class App extends React.Component {
                 <Link to="/blog" activeClassName="active">Blog</Link>
               </li>
               <li className="item">
-                <Link to="/projects" activeClassName="active">Projects</Link>
+                <a href="http://github.com/ncrum">Github</a>
               </li>
             </ul>
           </nav>

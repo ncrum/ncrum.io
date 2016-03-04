@@ -65,4 +65,4 @@ var mapStateToProps = function(state){
     }
 };
 
-export default connect(mapStateToProps)(BlogList);
+export default connect(mapStateToProps)(BlogList)
