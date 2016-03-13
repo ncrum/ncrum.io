@@ -17,11 +17,11 @@ const reducer = combineReducers(Object.assign({}, reducers, {
 const createStoreWithMiddleware = compose(
   applyMiddleware(routerMiddleware(browserHistory), thunkMiddleware, multiMiddleware),
   window.devToolsExtension ? window.devToolsExtension() : f => f
-)(createStore);
+)(createStore)
 
-const store = createStoreWithMiddleware(reducer, window.__INITIAL_STATE__);
+const store = createStoreWithMiddleware(reducer, window.__INITIAL_STATE__)
 
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
   <Provider store={store}>
@@ -29,5 +29,5 @@ ReactDOM.render(
       {getRoutes()}
     </Router>
   </Provider>,
-  document.getElementById('mount')
+  document.getElementById(`mount`)
 )

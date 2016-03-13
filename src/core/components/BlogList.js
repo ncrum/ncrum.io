@@ -1,7 +1,6 @@
-import React, {PropTypes} from 'react';
-import {Link} from 'react-router';
-import {connect} from 'react-redux';
-import {fetchPostsIfNeeded} from '../actions';
+import React, {PropTypes} from 'react'
+import {connect} from 'react-redux'
+import {fetchPostsIfNeeded} from '../actions'
 
 class BlogList extends React.Component {
 
@@ -51,18 +50,18 @@ BlogList.propTypes = {
 }
 
 BlogList.fetchData = function(args) {
-  const {store} = args;
+  const {store} = args
   return store.dispatch(fetchPostsIfNeeded())
 }
 
 // now we connect the component to the Redux store:
 var mapStateToProps = function(state){
-    // This component will have access to `state.blog.posts` through `this.props.posts`
-    return {
-      posts:  state.blog.posts || [],
-      isFetching: (state.blog.posts) ? state.blog.isFetching : true,
-      lastUpdated: state.blog.lastUpdated
-    }
-};
+  // This component will have access to `state.blog.posts` through `this.props.posts`
+  return {
+    posts:  state.blog.posts || [],
+    isFetching: (state.blog.posts) ? state.blog.isFetching : true,
+    lastUpdated: state.blog.lastUpdated
+  }
+}
 
 export default connect(mapStateToProps)(BlogList)

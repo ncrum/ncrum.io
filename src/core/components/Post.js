@@ -28,29 +28,29 @@ class Post extends React.Component {
       <div>
         <PostContent {...this.props.post}/>
       </div>
-    );
+    )
   }
 }
 
 
 Post.fetchData = function(args) {
-  const {params, store} = args;
+  const {params, store} = args
   return store.dispatch(fetchPostIfNeeded(params.title.removeDashes()))
 }
 
 // now we connect the component to the Redux store:
 var mapStateToProps = function(state){
-  const {blog} = state;
-  const {currentPost} = blog;
+  const {blog} = state
+  const {currentPost} = blog
 
   if (blog[currentPost]) {
     return {...blog[currentPost]}
   } else {
     return {
       post: {},
-      isFetching: true,
+      isFetching: true
     }
   }
-};
+}
 
-export default connect(mapStateToProps)(Post);
+export default connect(mapStateToProps)(Post)

@@ -1,9 +1,9 @@
-import React from 'react';
-import {Route, IndexRedirect} from 'react-router';
-import App from './components/App';
-import About from './components/About';
-import BlogList from './components/BlogList';
-import Post from './components/Post';
+import React from 'react'
+import {Route, IndexRedirect} from 'react-router'
+import App from './components/App'
+import About from './components/About'
+import BlogList from './components/BlogList'
+import Post from './components/Post'
 
 export default function getRoutes() {
   return (
@@ -14,5 +14,5 @@ export default function getRoutes() {
         <Route path=":title" component={Post}/>
       </Route>
     </Route>
-  );
+  )
 }

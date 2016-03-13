@@ -13,12 +13,12 @@ const app = koa()
 
 app.use(bodyParser())
 app.use(koaError())
-app.use(morgan.middleware('dev'))
+app.use(morgan.middleware(`dev`))
 
-let stylePath = path.join(__dirname, '../site/styles')
+let stylePath = path.join(__dirname, `../site/styles`)
 app.use(less(stylePath))
 app.use(serve(stylePath))
-app.use(serve(path.join(process.cwd(), 'node_modules/highlight.js/styles')))
+app.use(serve(path.join(process.cwd(), `node_modules/highlight.js/styles`)))
 
 web(app)
 

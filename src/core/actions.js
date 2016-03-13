@@ -1,11 +1,11 @@
 import fetch from 'isomorphic-fetch'
 
 function doFetch(url, options) {
-  const finalUrl = 'http://api.ncrum.io' + url;
-  return fetch(finalUrl, options);
+  const finalUrl = `http://api.ncrum.io` + url
+  return fetch(finalUrl, options)
 }
 
-export const REQUEST_POSTS = 'REQUEST_POSTS';
+export const REQUEST_POSTS = `REQUEST_POSTS`
 
 export function requestPosts() {
   return {
@@ -13,7 +13,7 @@ export function requestPosts() {
   }
 }
 
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const RECEIVE_POSTS = `RECEIVE_POSTS`
 
 export function receivePosts(json) {
   return {
@@ -40,7 +40,7 @@ function shouldFetchPosts(state) {
   } else if (state.blog.isFetching) {
     return false
   } else {
-    return true;
+    return true
   }
 }
 
@@ -63,7 +63,7 @@ export function fetchPostsIfNeeded() {
   }
 }
 
-export const REQUEST_POST = 'REQUEST_POST'
+export const REQUEST_POST = `REQUEST_POST`
 
 export function requestPost(title) {
   return {
@@ -72,7 +72,7 @@ export function requestPost(title) {
   }
 }
 
-export const RECEIVE_POST = 'RECEIVE_POST'
+export const RECEIVE_POST = `RECEIVE_POST`
 
 export function receivePost(title, json) {
   return {
@@ -104,7 +104,7 @@ function shouldFetchPost(title, state) {
   } else if (state.blog[title].isFetching) {
     return false
   } else {
-    return true;
+    return true
   }
 }
 
