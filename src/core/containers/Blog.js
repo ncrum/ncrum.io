@@ -2,7 +2,6 @@ import React from 'react'
 import {injectSheet} from 'core/jss/Style'
 import {withBlogs} from 'core/reducers/blogReducer'
 import PageHeader from 'core/components/PageHeader'
-import SideBar from 'core/components/SideBar'
 import Markdown from 'core/components/Markdown'
 
 class Blog extends React.Component {
