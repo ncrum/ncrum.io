@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import {combineReducers} from 'redux'
 import {connect} from 'react-redux'
 import {ROUTES_CHANGE, LOCATION_CHANGE} from 'core/actions/routerActions'
 
@@ -19,11 +19,15 @@ function schemaReducer(state = {}, action) {
         {routes : action.routes} : state
 }
 
-export function withLocation(component) {
-    return connect(({router}) => router.routing)(component)
-}
-
 export default combineReducers({
     routing : routingReducer,
     schema : schemaReducer,
 })
+
+export function withLocation(component) {
+    return connect(({router}) => router.routing)(component)
+}
+
+export function withRoutes(component) {
+    return connect(({router}) => router.schema)(component)
+}
