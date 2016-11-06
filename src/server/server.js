@@ -1,7 +1,7 @@
+import 'babel-polyfill'
 import path from 'path'
 import compression from 'compression'
 import express from 'express'
-import serve from 'serve-static'
 
 let app = express()
 app.use(compression())
