@@ -6,25 +6,25 @@ export const BlogActionTypes = {
     BLOG_FAILURE   : 'BLOG_FAILURE',
 }
 
-const Blog = new Schema('blogs')
+const Blog = new Schema('blogs', {idAttribute : '_id'})
 
 // TEMPORARY BLOG DATA
 const blogResponse = {
     blogs : [
         {
-            id : 1,
+            _id : 1,
             title : 'Test',
             description : `This is a blog.`,
             body : `### Testing`,
         },
         {
-            id : 2,
+            _id : 2,
             title : 'Test2',
             description : `This is another blog.`,
             body : `### Testing Testing`,
         },
         {
-            id : 3,
+            _id : 3,
             title : 'Test3',
             description : `This is yet another blog.`,
             body : `### Testing Testing Testing`,
@@ -33,15 +33,21 @@ const blogResponse = {
 }
 
 export function fetchBlogs() {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const {lastUpdated} = getState().blogs
+
+        if (Date.now() - lastUpdated < 1000 * 60) {
+            return undefined
+        }
+        
         dispatch({ type : BlogActionTypes.BLOG_REQUEST })
-        return Promise.resolve(blogResponse)
+        return fetch('http://api.ncrum.io/blog')
+        .then((response) => response.json())
         .then((response) => {
             dispatch({
                 type : BlogActionTypes.BLOG_SUCCESS,
-                response : normalize(response, {
-                    blogs : arrayOf(Blog)
-                })
+                response : normalize(response, arrayOf(Blog)),
+                receivedAt : Date.now(),
             })
         })
         .catch((error) => {

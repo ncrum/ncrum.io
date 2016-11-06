@@ -5,10 +5,10 @@ import Card from 'core/components/Card'
 const Cards = ({ blogs, sheet : {classes} }) => (
     <div className={classes.cardsContainer}>
         <ul className={classes.gridList}>
-            {!!blogs && blogs.map(({id, title, description}) => (
-                <li key={id} className={classes.gridItem}>
+            {!!blogs && blogs.map(({_id, title, description}) => (
+                <li key={_id} className={classes.gridItem}>
                     <div className={classes.cardOuter}>
-                        <Card id={id}
+                        <Card _id={_id}
                             title={title}
                             description={description}/>
                     </div>

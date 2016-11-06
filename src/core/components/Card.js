@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router'
 import {injectSheet, getColor} from 'core/jss/Style'
 
-const Card = ({ id, title, description, sheet : {classes} }) => (
+const Card = ({ _id, title, description, sheet : {classes} }) => (
     <div className={classes.card}>
         <div className={classes.cardTitle}>
             {title}
@@ -18,7 +18,7 @@ const Card = ({ id, title, description, sheet : {classes} }) => (
                 </p>
             </div>
         </div>
-        <Link to={`/blog/${id}`}
+        <Link to={`/blog/${title}`}
             className={classes.linkOverlay}/>
     </div>
 )

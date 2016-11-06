@@ -27,7 +27,7 @@ function getRoutes(state) {
             exactly : true,
         },
         {
-            pattern : '/blog/:id',
+            pattern : '/blog/:title',
             component : Blog,
             exactly : true,
         },

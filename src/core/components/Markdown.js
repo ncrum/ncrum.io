@@ -18,7 +18,7 @@ marked.setOptions({
 
 const Markdown = ({content}) => {
     return (
-        <div dangerouslySetInnerHTML={{ __html : marked(content) }}></div>
+        <div dangerouslySetInnerHTML={{ __html : marked(decodeURIComponent(content)) }}></div>
     )
 }
 
