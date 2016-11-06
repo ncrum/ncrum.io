@@ -7,9 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "node webpack-server.js",
     "clean": "rm -rf dist && mkdir dist",
-    "build-web": "NODE_ENV=production webpack --config webpack-production.config.js && cp ./src/client/index.html ./dist/static/index.html && cp -r ./src/client/fonts ./dist/static/fonts",
+    "copy-web": "cp ./src/client/index.html ./dist/static/index.html && cp -r ./src/client/fonts ./dist/static/fonts && cp -r ./src/client/style ./dist/static/style",
+    "build-web": "NODE_ENV=production webpack --config webpack-production.config.js",
     "build-server": "NODE_ENV=production babel src/server/server.js --out-file dist/server.js",
-    "prestart": "npm run clean && npm run build-server && npm run build-web",
+    "prestart": "npm run clean && npm run build-server && npm run build-web && npm run copy-web",
     "start": "node dist/server.js"
   },
   "repository": {
