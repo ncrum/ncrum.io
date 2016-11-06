@@ -6,6 +6,7 @@ import express from 'express'
 let app = express()
 app.use(compression())
 app.use('/static', express.static(path.join(__dirname, 'static')))
+app.use('/fonts', express.static(path.join(__dirname, 'static/fonts')))
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'static/index.html'))
