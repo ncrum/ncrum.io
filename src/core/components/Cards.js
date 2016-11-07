@@ -39,13 +39,13 @@ const styles = {
     },
 
     gridItem : {
-        flex: '0 1 33%',
+        flex: '0 1 50%',
         marginBottom : 20,
     },
 
     '@media (min-width : 900px)' : {
         gridItem : {
-            flex: '0 1 50%',
+            flex: '0 1 33%',
         },
     },
 
