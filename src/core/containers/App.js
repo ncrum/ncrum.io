@@ -4,10 +4,10 @@ import {withRoutes} from 'core/reducers/routerReducer'
 import Nav from 'core/containers/Nav'
 import ConnectedRoutes from 'core/containers/ConnectedRoutes'
 
-const App = ({ routes, sheet : {classes} }) => (
-    <div className={classes.root}>
+const App = ({ routes}) => (
+    <div>
         <Nav/>
-        
+
         <ConnectedRoutes routes={routes}/>
     </div>
 )
@@ -18,10 +18,29 @@ const globalStyles = {
         src: 'url(/fonts/futura_book.ttf)',
     },
 
-    root : {
-        fontFamily: 'Futura Book',
-        margin : '-8px'
+    body : {
+        fontFamily: 'Cambria, Georgia, san-serif'
+    },
+
+    h1 : {
+        fontFamily: 'Futura Book'
+    },
+
+    h2 : {
+        fontFamily: 'Futura Book'
+    },
+
+    h3 : {
+        fontFamily: 'Futura Book'
+    },
+
+    h4 : {
+        fontFamily: 'Futura Book'
+    },
+
+    h5 : {
+        fontFamily: 'Futura Book'
     },
 }
 
-export default injectSheet(globalStyles)(withRoutes(App))
+export default injectSheet(globalStyles, {named:false})(withRoutes(App))
