@@ -11,7 +11,7 @@ const Nav = ({ sheet : { classes }}) => (
             <Link to="/blogs" className={classes.navListItemLink}>Blogs</Link>
         </li>
         <li className={classes.navListItem}>
-            <a href="https://github.com/ncrum" className={classes.navListItemLink}>Github</Link>
+            <a href="https://github.com/ncrum" className={classes.navListItemLink}>Github</a>
         </li>
     </ul>
 )
