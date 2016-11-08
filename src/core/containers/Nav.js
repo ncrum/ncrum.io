@@ -30,6 +30,7 @@ const styles = {
         padding: '10px 20px',
     },
     navListItemLink: {
+        fontFamily: 'Futura Book',
         fontSize: 21,
         color: getColor('white'),
         textDecoration: 'none',
