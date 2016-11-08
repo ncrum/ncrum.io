@@ -19,7 +19,8 @@ const globalStyles = {
     },
 
     body : {
-        fontFamily: 'Cambria, Georgia, san-serif'
+        fontFamily: 'Cambria, Georgia, san-serif',
+        fontSize: 21,
     },
 
     h1 : {
