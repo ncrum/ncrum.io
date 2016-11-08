@@ -23,10 +23,6 @@ const globalStyles = {
         fontSize: 21,
     },
 
-    li : {
-        fontFamily: 'Futura Book'
-    },
-
     h1 : {
         fontFamily: 'Futura Book'
     },
@@ -45,6 +41,10 @@ const globalStyles = {
 
     h5 : {
         fontFamily: 'Futura Book'
+    },
+
+    code : {
+        fontSize: 16
     },
 }
 
