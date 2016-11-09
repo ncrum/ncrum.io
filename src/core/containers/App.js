@@ -21,6 +21,7 @@ const globalStyles = {
     body : {
         fontFamily: 'Cambria, Georgia, san-serif',
         fontSize: 21,
+        margin: 0
     },
 
     h1 : {
