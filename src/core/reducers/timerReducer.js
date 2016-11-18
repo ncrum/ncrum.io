@@ -9,7 +9,10 @@ export default function timer(state = {
         case TimerActionTypes.TIMER_START:
         return {
             ...state,
-            start : action.now,
+            start : state.stop ?
+                (action.now - (state.stop - state.start))
+                :
+                (state.start || action.now),
             stop : null
         }
         case TimerActionTypes.TIMER_STOP:
