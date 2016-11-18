@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import routerReducer from 'core/reducers/routerReducer'
 import blogReducer from 'core/reducers/blogReducer'
+import timerReducer from 'core/reducers/timerReducer'
 import merge from 'lodash/merge'
 
 const entities = (state = { blogs: {} }, action) => {
@@ -14,6 +15,7 @@ const entities = (state = { blogs: {} }, action) => {
 const rootReducer = combineReducers({
     router : routerReducer,
     blogs : blogReducer,
+    timer : timerReducer,
     entities
 })
 

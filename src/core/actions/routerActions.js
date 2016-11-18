@@ -1,6 +1,7 @@
 import About from 'core/containers/About'
 import Blog from 'core/containers/Blog'
 import Blogs from 'core/containers/Blogs'
+import Timer from 'core/containers/Timer'
 export const ROUTES_CHANGE = '@@routing/ROUTES_CHANGE'
 export const LOCATION_CHANGE = '@@routing/LOCATION_CHANGE';
 
@@ -31,5 +32,10 @@ function getRoutes(state) {
             component : Blog,
             exactly : true,
         },
+        {
+            pattern : '/timer',
+            component : Timer,
+            exactly : true
+        }
     ])
 }
